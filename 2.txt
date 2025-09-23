@@ -1,0 +1,45 @@
+/*2번 문제
+ * list에 각각의 아이템들에게 값을 곱해야 하니 map,where 메서드를 사용하면 될듯
+ */
+
+ void main(){
+   cartItem();
+   }
+
+
+
+
+void cartItem(){
+  List<String> cart = ['티셔츠','바지',"모자", "티셔츠", "바지"];
+  
+  var cartcost = cart.map((item) {
+    if(item == '티셔츠'){
+      return 10000;
+    }
+    else if(item == '바지'){
+      return 8000;
+    }
+    else if(item == '모자'){
+      return 4000;
+    }
+    else{
+      print('그런 상품은 없어요잉');
+      return 0;
+    }
+     });
+  print(cartcost);
+  var totalcost = cartcost.reduce((a,b) => a+b);
+  totalcost != null;
+  
+  print('장바구니에 $totalcost어치를 담으셨네요!');
+  
+  if(totalcost>=20000){
+    var itemsale = totalcost*0.8;
+    print('최종결제금액은 세일해서 $itemsale원입니다');
+  }
+  else if(totalcost<20000){
+    print('최종결제금액은 $totalcost원입니다');
+  }
+  
+  
+}

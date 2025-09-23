@@ -1,0 +1,55 @@
+
+
+/*3번 문제
+ 숫자 6개를 반복해서 출력해야하니 반복문이 들어가야될듯
+ 지정 당첨 번호 : [9, 19, 29, 35, 37, 38]
+ */
+import 'dart:math';
+
+void main(){
+  lottery();
+ }
+
+
+void lottery(){
+  Set<int> numbers = {};
+  for(int i=0; i<6; i++){
+    numbers.add(Random().nextInt(45)+1);
+    }
+    var numberlist = numbers.toList();
+    numberlist.sort();
+    
+  print('발급한 로또 번호 : $numberlist');
+  List <int> lottonumber = [9, 19, 29, 35, 37, 38];
+  List<int> matched = numberlist.where((i) => lottonumber.contains(i)).toList();
+   
+   if(matched.length >= 5){
+     print('맞춘 번호 : $matched');
+     print('당첨 여부 : 1등');
+   }
+   else if(matched.length == 4){
+     print('맞춘 번호 : $matched');
+     print('당첨 여부 : 2등');
+   }
+   else if(matched.length == 3){
+     print('맞춘 번호 : $matched');
+     print('당첨 여부 : 3등');
+   }
+   else if(matched.length <= 2 && matched.length >=1){
+     print('맞춘 번호 : $matched');
+     print('당첨 여부 : 당첨 실패!');
+   }
+   else if(matched.length == 0){
+     print('맞는 번호가 없습니다!');
+   }
+  numberlist.clear();
+    print('현재 발급한 로또 번호 : $numberlist');
+
+  
+  }
+
+
+ 
+
+
+
