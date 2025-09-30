@@ -97,6 +97,41 @@ String? scoreadvance(List<StudentScore> studentlist){
 }
 
 void main(){
+ 
+}
+
+
+void addchallenge(List<StudentScore> studentlist){
+  
+  double total = 0;
+  stdout.write('''메뉴를 선택하세요:
+  1.우수생 출력
+  
+  2.전체 평균 점수 출력
+  
+  3.종료
+  
+  입력 :   ''');
+  String? input = stdin.readLineSync();
+  if (input == '1'){
+    var compare = studentlist.reduce((a,b) => (a.score ?? 0 ) > (b.score ?? 0) ? a : b);
+    print('우수생: ${compare.name} 점수: ${compare.score}');
+  }
+  else if (input == '2'){
+    for (var n in studentlist){
+         
+      
+           total += n.score! ;
+      
+      
+      
+      
+    }
+     print('평균 : ${total/2} 점');
+    
+    
+  }
+ 
   
 }
 
